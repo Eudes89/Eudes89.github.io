@@ -1,0 +1,101 @@
+/*ESTILOS GERAIS*/
+body, header, main, figure,img,h1,h2,h3,h4,h5,h6,div,ul,li,nav,a{
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    text-decoration: none;
+}
+
+/*CABEÇALHO*/
+
+.cabecalho{
+    display: inline-grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-image: linear-gradient(to right, #ffffff 0%, #f2f2f5 25%, #d9d9d9 50%, #dee2e9 75%, white 100% );
+    width: 100%;
+    height: 135px;
+}
+
+.iconsCabecalho{
+    align-self: end;
+    margin-left: 5px;
+}
+
+.navegacaoCabecalho{
+   
+}
+
+.iconHambuger{
+    width: 50px;
+}    
+
+.logotipo{
+    background-image: url(../img/logo-new-tech-correto-500px-500px-removebg-preview.png);
+    background-position: center;
+    background-size: cover;
+    width: 220px;
+    height: 135px;
+    margin-left: 15px;
+}
+
+
+.divisoriaHeader{
+    background-color: black;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.divisoriaHeader h3{
+    color: white;
+    font-size: 11px;
+    
+}
+
+.menuHamburguer{
+    position: absolute;
+    border: 2px solid #ffffff00;
+    margin-top: 131px;
+    padding: 5px 60px 0px 10px;
+    margin-left: 0px;
+    border-radius: 8px;
+    background-image: linear-gradient(to right, #ffffff 0%, #ececed 25%, #bdb8b8 50%, #dddddd 75%, #ffffff 100% );
+}
+
+
+.menuHamburguer__list{
+    font-size: large;
+    margin-bottom: 18px;
+}
+
+.menuHamburguer__list a{
+    color: #dfdfdf;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 25px;
+    font-variant-caps: small-caps;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+
+.menuHamburguer__list .iconProduto, .menuHamburguer__list .iconParceiros,
+.menuHamburguer__list .iconSobreNos, .menuHamburguer__list .iconFaleConosco{
+    width: 55px;
+    margin-right: 20px;
+}
+
+.closeNavegacao{
+    align-self: center;
+
+}
+.closeIcon{
+    width: 50px;
+    
+}
+
+.menuHamburguer__list01, .menuHamburguer__list02, .menuHamburguer__list03,
+.menuHamburguer__list04{
+    display: flex;
+    margin-bottom: 5px;
+    
+}
