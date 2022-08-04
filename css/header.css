@@ -58,7 +58,7 @@ body, header, main, figure,img,h1,h2,h3,h4,h5,h6,div,ul,li,nav,a{
     padding: 5px 60px 0px 10px;
     margin-left: 0px;
     border-radius: 8px;
-    background-image: linear-gradient(to right, #ffffff 0%, #ececed 25%, #bdb8b8 50%, #dddddd 75%, #ffffff 100% );
+    background-image: linear-gradient(to right, #000000 0%, #101010 25%, #1c1b1b 50%, #322f2f 75%, #3a3737 100% );
 }
 
 
@@ -68,13 +68,13 @@ body, header, main, figure,img,h1,h2,h3,h4,h5,h6,div,ul,li,nav,a{
 }
 
 .menuHamburguer__list a{
-    color: #dfdfdf;
+    color: #ffffff;
     display: flex;
     align-items: center;
     font-weight: 600;
     font-size: 25px;
     font-variant-caps: small-caps;
-    text-shadow: 2px 2px 2px #000000;
+    text-shadow: -1px 1px 15px #48eaff
 }
 
 
