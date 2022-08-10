@@ -1,0 +1,53 @@
+/*Produto do video inicial*/
+
+.produtoInicial{}
+.figureLataWeg{
+    text-align-last: center;
+    margin-block-start: -18px;
+    margin-block-end: -35px;
+    background-color: white;
+}
+.imgLataBrancaWeg{
+    width: 230px;
+}
+.tituloSrd501{
+    font-size: 1.2em;
+    text-align: center;
+    color: white;
+    border: 2px solid black;
+    background-color: darkblue;
+    border-radius: 13px;
+    margin-block-end: -4px;
+}
+.paragrafoSrd501{
+    padding: 0px 35px;
+    margin-block-start: 15px;
+    margin-block-end: 15px;
+    font-weight: 600;
+    background-color: white;
+    color: #1030e3;
+}
+
+.areaBotao{
+    text-align-last: center;
+    background-color: white;
+    margin-block-start: -5px;
+    padding: 8px 0px;
+}
+
+.botaoContato{
+    display: inline-flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: lightgreen;
+    border-color: lightgreen;
+}
+.imgWhatsApp{
+    width: 40px;
+}
+
+.fraseBotao{
+    margin-left: 5px;
+    font-weight: 800;
+    color: black;
+}
