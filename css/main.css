@@ -42,14 +42,19 @@
     border-radius: 20px;
     background-color: lightgreen;
     border-color: lightgreen;
+    width: 223px;
+    height: 54px;
+    margin-top: 15px;
 }
+
 .imgWhatsApp{
-    width: 40px;
+    width: 56px;
+    padding: 0px 3px 0px 0px;
+    margin-inline-start: -8px;
 }
 .botaoContato p{
-    margin-left: 5px;
     font-family: 'Alumni Sans Collegiate One', sans-serif;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 /*====================*/
