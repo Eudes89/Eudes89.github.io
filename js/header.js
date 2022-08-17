@@ -17,7 +17,3 @@ closeIcon.addEventListener("click", function(){
     closeIcon.hidden = true;
 })
 
-
-//ICONE WHATSAPP
-const whatsAppIcon = document.querySelector(".iconWhatsApp__img");
-const celWhatsApp = document.querySelector(".iconWhatsApp__numero");
