@@ -46,12 +46,12 @@
 .imgWhatsApp{
     width: 40px;
 }
-
-.fraseBotao{
-    margin-left: 5px;
+.botaoContato p{
     font-weight: 800;
-    color: black;
+    margin-left: 5px;
+    font-family: cursive;
 }
+
 /*====================*/
 .produto01{}
 
