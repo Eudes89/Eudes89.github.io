@@ -47,9 +47,9 @@
     width: 40px;
 }
 .botaoContato p{
-    font-weight: 800;
     margin-left: 5px;
-    font-family: cursive;
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+    font-size: 20px;
 }
 
 /*====================*/
