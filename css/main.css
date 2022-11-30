@@ -88,3 +88,58 @@
     background-color: white;
     color: #1030e3;
 }
+
+/*BUSCADOR*/
+.Buscador{
+    margin-block-end: 18px;
+    margin-block-start: 10px;
+    text-align: center;
+}
+.campo__pesquisar{}
+.botaoPesquisar{}
+
+
+/*CAMPO DE NADA ENCONTRADO*/
+.secaoNadaEncontrado{
+    margin-block-end: 20px;
+    margin-block-start: -14px;
+    text-align: center;
+}
+.msgNadaEncontrado{
+    color: red;
+}
+
+
+/*CAMPO DE RESULTADOS DO BUSCADOR*/
+.secaoResultados{}
+.listaResultados{}
+.listaResultados .produto__srd{}
+
+
+
+.tagFigureSrd, .tagFigureflex{
+    text-align-last: center;
+    margin-block-start: 25px;
+    margin-block-end: -9px;
+    background-color: white;
+}
+.tagFigureSrd img, .imgflex{
+    width: 230px;
+}
+.tituloSrd, .tituloflex{
+    font-size: 1.2em;
+    text-align: center;
+    color: white;
+    border: 2px solid black;
+    background-color: darkblue;
+    border-radius: 13px;
+    margin-block-end: -4px;
+}
+.descricaoSrd, .descricaoFlex{
+    padding: 0px 35px;
+    margin-block-start: 15px;
+    margin-block-end: 15px;
+    font-weight: 600;
+    background-color: white;
+    color: #1030e3;
+}
