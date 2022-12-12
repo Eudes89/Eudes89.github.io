@@ -121,5 +121,6 @@ function quantosMatch (produto){
     return achados;
 };
 
+const allProducts = require("con");
 
-
+console.log(allProducts);
