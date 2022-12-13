@@ -30,10 +30,9 @@ body, header, main, figure,img,h1,h2,h3,h4,h5,h6,div,ul,li,nav,a{
 }    
 
 .logotipo{
-    background-image: url(../img/logo-new-tech-correto-500px-500px-removebg-preview.png);
     background-position: center;
     background-size: cover;
-    width: 220px;
+    width: 236px;
     height: 135px;
     margin-left: 15px;
 }
@@ -59,6 +58,7 @@ body, header, main, figure,img,h1,h2,h3,h4,h5,h6,div,ul,li,nav,a{
     margin-left: 0px;
     border-radius: 8px;
     background-image: linear-gradient(to right, #000000 0%, #101010 25%, #1c1b1b 50%, #322f2f 75%, #3a3737 100% );
+    z-index: 1;
 }
 
 
