@@ -10,12 +10,15 @@ const con = mysql.createConnection({
 con.connect(function(err) {
     if(err) throw err;
     console.log('connected!');
-    con.query("SELECT * FROM `new-tech-db`.products", (err, result) => {
-        if(err) throw err;
-        const produto = JSON.stringify(result);
-        console.log(produto);
-    });
 });
 
-module.exports(con);
+con.connect(function(err) {
+    if(err) throw err;
+    console.log('connected!');
+    con.query("SELECT produto FROM `new-tech-db`.products", (err, result) => {
+        if(err) throw err;
+        const produto = JSON.stringify(result);
+        return produto;
+    });
+}); 
 
