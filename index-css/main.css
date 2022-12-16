@@ -1,11 +1,13 @@
+main{
+    background-image: url(../img/backgrround-colors-in-cel.jpg);
+    background-repeat: repeat-y;
+    background-size: 360px;
+
+}
 
 /*Produto do video inicial*/
 .produtoInicial{
     padding-top: 5px;
-    background-image: url(../img/backgrround-colors-in-cel.jpg);
-    background-repeat: no-repeat;
-    background-size: 360px;
-    padding-bottom: 10px;
 }
 
 .figureprodutoInicial{
@@ -27,11 +29,13 @@
 }
 
 .divParagrafoSrd501{
-    background-color: aliceblue;
+    background-color: #1e0101;
     opacity: 80%;
     margin-right: 10px;
     margin-left: 10px;
     position: relative;
+    border-radius: 18px;
+    margin-top: 10px;
 }
 
 .paragrafoSrd501{
@@ -39,7 +43,7 @@
     margin-block-start: 4px;
     margin-block-end: 15px;
     font-weight: 600;
-    color: black;
+    color: white;
     font-style: italic;
     font-family: serif;
 }
@@ -104,13 +108,10 @@
 
 /*BUSCADOR*/
 .Buscador{
-    margin-block-end: 18px;
-    margin-block-start: 10px;
+    margin-block-end: 0px;
+    margin-block-start: 20px;
     text-align: center;
 }
-.campo__pesquisar{}
-.botaoPesquisar{}
-
 
 /*CAMPO DE NADA ENCONTRADO*/
 .secaoNadaEncontrado{
@@ -124,8 +125,6 @@
 
 
 /*CAMPO DE RESULTADOS DO BUSCADOR*/
-.divResultados{}
-
 
 .tagFigureSrd, .tagFigureflex{
     text-align-last: center;
