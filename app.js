@@ -8,10 +8,8 @@
 
 const express = require('express');
 const app = express();
-const path = require('path');
-const router = express.Router();
 
-app.use(express.static('public'));
+app.use('/', express.static('public'));
 
 app.use('/produtos', express.static(__dirname + '/public/routes/produtos.html'));
 app.use('/parceiros', express.static(__dirname + '/public/routes/parceiros.html'));
@@ -20,5 +18,5 @@ app.use('/contato', express.static(__dirname + '/public/routes/contato.html'));
 
 app.listen(3000);
 
-console.log('Rotas conectadas por Express!');
-console.log('Abra localhost:3000 para ver mudanças.');
+// console.log('Rotas conectadas por Express!');
+// console.log('Abra localhost:3000 para ver mudanças.');
