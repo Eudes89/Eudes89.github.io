@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="application-name" content="MyApp" />
+        <meta name="apple-mobile-web-app-title" content="MyApp" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <script src="./js/header.js" defer></script>
+        <script src="./js/buscador.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&display=swap" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="./css/header.css">
+        <link type="text/css" rel="stylesheet" href="./css/main.css">
+        <link type="text/css" rel="stylesheet" href="./css/botaoEfeito.css">
+        <link type="text/css" rel="stylesheet" href="./css/footer.css">
+        <title>New Tech Tintas</title>
+    </head>
+    
+    <body>
+        <header class="cabecalho">
+            
+            <div class="iconsCabecalho">
+                <figure class="navegacaoCabecalho">
+                    <img src="./img/hamburger.png" alt="icon-hamburger" class="iconHambuger">
+                </figure>
+
+                <figure class="closeNavegacao">
+                    <img src="./img/cancel.png" alt="close-box" class="closeIcon" hidden>
+                </figure>
+            </div>
+
+            <nav class="menuHamburguer" hidden>
+                <ul class="menuHamburguer__list">
+                    <li class="menuHamburguer__list01">
+                        <a href="/produtos">
+                        <img src="./img/lata-branca-weg.png" class="iconProduto" alt="produtos">
+                        Produtos</a>
+                    </li>
+                    <li class="menuHamburguer__list02">
+                        <a href="/parceiros">
+                            <img src="./img/aperto-de-mao-de-parceria.png" class="iconParceiros" alt="parceiros">    
+                        Parceiros</a>
+                        <a href="https://www.flaticon.com/br/icones-gratis/do-utilizador" title="do utilizador ícones" hidden></a>
+                    </li>
+                    <li class="menuHamburguer__list03">
+                        <a href="/sobrenos">
+                            <img src="./img/sobre-nos-2.png" alt="sobre" class="iconSobreNos">    
+                        Sobre nós</a>
+                    </li>
+                    <li class="menuHamburguer__list04">
+                        <a href="/contato">
+                            <img src="./img/atendimento-ao-cliente.png" alt="contato" class="iconFaleConosco"> 
+                        Contato</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <figure class="figurelogotipo">
+                <a href="/">
+                    <img src="./img/logo-new-tech-removebg-preview.png" alt="logo" class="logotipo">
+                </a>
+                <figcaption hidden>Logotipo New tech Tintas</figcaption>
+            </figure>
+
+        </header>
+
+        <div class="divisoriaHeader">
+            <h3>DIVISÃO DE FROTAS E INDUSTRIAIS</h3>
+        </div>
+
+        <main>
+            <!--Sessão Buscador de Produtos-->
+            <section class="Buscador">
+                
+                <input type="search" placeholder="Pesquise por produtos"
+                name="q" class="searchField" maxlength="50">
+                <button type="button" class="botaoPesquisar">Pesquisar</button>
+                
+            </section>
+
+            <div class="divResultados">
+                
+            </div>
+
+            <section class="galeria">
+                <div class="divTituloGaleria">
+                    <h2 class="tituloGaleria">Produtos em Destaque</h2>
+                </div>
+                <img src="./img/w-thane-pu-srd-501.png" alt="tinta Srd banner" class="galeria_img01">
+            </section>
+
+            <section class="secaoNadaEncontrado" hidden>
+                <h3 class="msgNadaEncontrado">Desculpe, não encontramos nada referente.</h3>
+            </section>
+
+
+            <section class="produtoInicial">
+                
+                <!-- <figure>
+                    <video width="360px" height="640px" preload="auto" autoplay muted controls="controls">
+                        <source src="./videos/formato celular/comercial-srd-501.mp4" type="video/mp4">
+                    </video>
+                    <figcaption hidden>Tinta WEG Frota Pu W-thane Srd 501</figcaption>
+                </figure> -->
+
+                <figure class="figureprodutoInicial">
+                    <img src="./img/lata-branca-weg.png" alt="Weg Galão" class="imgProdutoInicial">
+                    <figcaption hidden>W-THANE PU SRD 501</figcaption>
+                </figure>
+                <h2 class="tituloProdutoInicial">Tinta PU W-Thane SRD 501 Weg-Frotas</h2>
+                <div class="divParagrafoSrd501">
+                    <p class="paragrafoSrd501">Poliuretano Acrílico Dupla Função de secagem rápida, alta resistência anticorrosiva
+                        e ao intemperismo. Produto aceita aplicação em diversos tipos de substrato: Aço Jateado, Aço Carbono e quente
+                        (Chapa Preta), Aço Carbono Fosfatizado e Galvanizado. Os acabamentos possuem versões desde o Ultra Fosco ao 
+                        Brilhante. Diversas cores disponíveis em nosso sistema tintométrico.
+                    </p>
+                </div>
+                
+                <!--BOTAO WHATSAPP EXPERIMENTAL C/ EFEITO-->
+                <div class="animated-div">
+                    <a href="https://wa.me/5511983350936" class="animated-button1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        COTAÇÃO
+                    </a>
+                </div>
+                <!--BOTAO WHATS APP antigo-->
+                <!-- <form action="https://wa.me/5511983350936" class="areaBotao">    
+                    <button type="submit" class="botaoContato">
+                        <img src="./img/whatsapp.png" alt="" class="imgWhatsApp">
+                        <p>Faça sua cotação</p>
+
+                    </button>
+                </form>     -->
+                
+            </section>
+
+            <section class="produto01">
+                
+                <!-- <figure class="produtoVideo">
+                    <video width="360px" height="640px" preload="auto" controls="controls">
+                        <source src="./videos/formato celular/w-frota-pu-flex-comercial-instagram-EDICAO-FINAL-1.mp4" type="video/mp4">
+                    </video>
+                    <figcaption hidden>Tinta para lonas / sider Weg esmalte PU FLEX</figcaption>
+                </figure> -->
+
+                <!-- <figure class="figureProduto01">
+                    <img src="./img/w-frota_540x375px3-removebg-preview.png" alt="Tinta Weg Pu Flex" class="imgProduto02">
+                    <figcaption hidden>Tinta Weg Pu Flex</figcaption>
+                </figure>
+                <h2 class="tituloProduto02">Tinta W-FROTA Esmalte PU FLEX</h2>
+                <p class="paragrafoProduto02">Base Poliuretano para aplicação em lonas e outras superfícies flexíveis. Devido
+                    a sua versatilidade também poder ser utilizado como verniz para sistema de dupla camada de até mesmo efeito
+                    metálico em substratos flexíveis, outra característica importante é a proteção e brilho no substrato proporcionando
+                    uma grande facilidade no processo de limpeza. Linha de concentrados W-FROTA F50. Recomendado para pinturas de lonas
+                    de siders.
+                </p>
+
+                BOTAO WHATSAPP EXPERIMENTAL C/ EFEITO
+                <a href="https://wa.me/5511983350936" class="animated-button1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    COTAÇÃO
+                </a> 
+            
+
+                <form action="https://wa.me/5511983350936" class="areaBotao">    
+                    <button type="submit" class="botaoContato">
+                        <img src="./img/whatsapp.png" alt="" class="imgWhatsApp">
+                        <p>Faça sua cotação</p>
+                    </button>
+                </form> -->
+
+            </section>
+
+            <!--CAMPO DE RESULTADOS DO BUSCADOR 2-->
+            <!-- <section class="secaoResultados">
+
+                <ul class="listaResultados">
+                    
+                    <li class="produto__srd" hidden>
+                        <figure class="tagFigureSrd">
+                            <img src="./img/lata-branca-weg.png" alt="Weg Galão" class="imgSrd">
+                            <figcaption hidden>W-THANE PU SRD 501</figcaption>
+                        </figure>
+                        <h2 class="tituloSrd">Tinta PU W-Thane SRD 501 Weg-Frotas</h2>
+                        <p class="descricaoSrd">Poliuretano Acrílico Dupla Função de secagem rápida, alta resistência anticorrosiva e ao intemperismo. Produto aceita aplicação em diversos tipos de substrato: Aço Jateado, Aço Carbono e quente (Chapa Preta), Aço Carbono Fosfatizado e Galvanizado. Os acabamentos possuem versões desde o Ultra Fosco ao Brilhante. Diversas cores disponíveis em nosso sistema tintométrico.</p>
+
+                        <form action="https://wa.me/5511983350936" class="areaBotao">    
+                            <button type="submit" class="botaoContato">
+                                <img src="./img/whatsapp.png" alt="" class="imgWhatsApp">
+                                <p>Faça sua cotação</p>
+                            </button>
+                        </form>
+
+                    </li>
+
+                    <li class="produtoFlex" hidden>
+                        <figure class="tagFigureflex">
+                            <img src="./img/w-frota_540x375px3-removebg-preview.png" alt="Tinta Weg Pu Flex" class="imgflex">
+                            <figcaption hidden>Tinta Weg Pu Flex</figcaption>
+                        </figure>
+                        <h2 class="tituloflex">Tinta W-FROTA Esmalte PU FLEX</h2>
+                        <p class="descricaoFlex">Base Poliuretano para aplicação em lonas e outras superfícies flexíveis. Devido a sua versatilidade também poder ser utilizado como verniz para sistema de dupla camada de até mesmo efeito metálico em substratos flexíveis, outra característica importante é a proteção e brilho no substrato proporcionando uma grande facilidade no processo de limpeza. Linha de concentrados W-FROTA F50. Recomendado para pinturas de lonas de siders.</p>
+
+                        <form action="https://wa.me/5511983350936" class="areaBotao">    
+                            <button type="submit" class="botaoContato">
+                                <img src="./img/whatsapp.png" alt="" class="imgWhatsApp">
+                                <p>Faça sua cotação</p>
+                            </button>
+                        </form>
+
+                    </li>
+
+                    <li class="produtoSintetico" hidden>
+                        <h2 class="tituloSintetico">TINTA SINTÉTICA INDUSTRIAL</h2>
+                        <p class="descricaoSintetico">Formulado para pinturas de maquinas e equipamentos</p>
+                    </li>
+                    <li hidden>
+                        <p>Diluente PU</p>
+                    </li>
+                    <li hidden>
+                        <p>Diluente Flex</p>
+                    </li>
+                    <li hidden>
+                        
+                    </li>
+                </ul>
+            </section> -->
+        </main>
+
+        <footer>
+            
+            <section class="redesSociais">
+                <h3 class="redesSociais__titulo">Redes Sociais</h3>
+                <ul class="redesSociais__lista">
+                    <li>
+                        <a href="https://www.facebook.com/New-Tech-Tintas-110253030658976"><img src="./img/facebook.png" alt="facebook" class="facebook__img"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/newtechtintas/"><img src="./img/instagram.png" alt="instagram" class="instagram__img"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/new-tech-com%C3%A9rcio-de-tintas/"><img src="./img/linkedin.png" alt="linkedin" class="linkedin__img"></a>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- <section class="secaoGuia">
+                <ul class="secaoGuia__lista">
+                    <li><a href="#">Duvidas</a></li>
+                    <li><a href="#">Área p/ Profissionais</a></li>
+                    <li><a href="#">Área Técnica</a></li>
+                </ul>
+                <ul class="secaoGuia__lista2">
+                    <li><a href="#">Consulta de cores</a></li>
+                    <li><a href="#">Trabalhe Conosco</a></li>
+                    <li><a href="#">Compliance</a></li>
+                </ul>    
+            </section> -->
+
+            <section class="direitos">
+                <img src="./img/direito-autoral-3.png" alt="direitos autorais" class="direito__img" hidden>
+                <p class="direito__texto">® Todos os direitos reservados a New Tech Tintas</p>
+            </section>
+        </footer>     
+        
+    </body>
+
+</html>

@@ -1,0 +1,70 @@
+footer{
+    background-color: #000000d6;
+    margin-block-start: -10px;
+}
+
+/*redes sociais*/
+.redesSociais{
+    margin-bottom: 25px;
+    padding: 10px 0px 0px 0px;
+}
+.redesSociais__lista{
+    display: flex;
+    justify-content: center;
+}
+.redesSociais__titulo{
+    color: tomato;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.facebook__img{
+    width: 50px;
+    margin: 2px 5px 2px 5px;
+}
+.instagram__img{
+    width: 50px;
+    margin: 2px 5px 2px 5px;
+}
+.linkedin__img{
+    width: 50px;
+    margin: 2px 5px 2px 5px;
+}
+
+/*Seção GUIA*/
+.secaoGuia{
+    display: flex;
+    justify-content: space-evenly;
+}
+.secaoGuia__lista{}
+.secaoGuia__lista li{
+    margin-bottom: 15px;
+}
+.secaoGuia__lista li a{
+    color: white;
+    font-family: fantasy;
+}
+.secaoGuia__lista2{}
+.secaoGuia__lista2 li{
+    margin-bottom: 15px;
+}
+.secaoGuia__lista2 a{
+    color: white;
+    font-family: fantasy;
+}
+
+
+/*Seção Direitos autorais*/
+
+.direitos{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px;
+}
+.direito__img{
+    width: 30px;
+}
+.direito__texto{
+    color: white;
+    font-size: 12px;
+}

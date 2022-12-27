@@ -1,0 +1,100 @@
+/*ESTILOS GERAIS*/
+body, header, main, figure,img,h1,h2,h3,h4,h5,h6,div,ul,li,nav,a{
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    text-decoration: none;
+}
+
+/*CABEÇALHO*/
+
+.cabecalho{
+    display: inline-grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-image: linear-gradient(to right, #ffffff 0%, #f2f2f5 25%, #d9d9d9 50%, #dee2e9 75%, white 100% );
+    width: 110%;
+    height: 140px;
+}
+
+.iconsCabecalho{
+    align-self: end;
+    margin-left: 5px;
+    padding: 0px 0px 30px 0px;
+}
+
+.iconHambuger{
+    width: 50px;
+}    
+
+.figurelogotipo{
+    margin-top: -20px;
+    width: 100%;
+}
+
+.logotipo{
+    height: 190px;
+    display: block;
+}
+
+
+.divisoriaHeader{
+    background-color: black;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+.divisoriaHeader h3{
+    color: white;
+    font-size: 11px;
+    
+}
+
+.menuHamburguer{
+    position: absolute;
+    border: 2px solid #ffffff00;
+    margin-top: 131px;
+    padding: 5px 60px 0px 10px;
+    margin-left: 0px;
+    border-radius: 8px;
+    background-image: linear-gradient(to right, #000000 0%, #101010 25%, #1c1b1b 50%, #322f2f 75%, #3a3737 100% );
+    z-index: 1;
+}
+
+
+.menuHamburguer__list{
+    font-size: large;
+    margin-bottom: 18px;
+}
+
+.menuHamburguer__list a{
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 25px;
+    font-variant-caps: small-caps;
+    text-shadow: -1px 1px 15px #3cdcf1
+}
+
+
+.menuHamburguer__list .iconProduto, .menuHamburguer__list .iconParceiros,
+.menuHamburguer__list .iconSobreNos, .menuHamburguer__list .iconFaleConosco{
+    width: 55px;
+    margin-right: 20px;
+}
+
+.closeNavegacao{
+    align-self: center;
+
+}
+.closeIcon{
+    width: 50px;
+    
+}
+
+.menuHamburguer__list01, .menuHamburguer__list02, .menuHamburguer__list03,
+.menuHamburguer__list04{
+    display: flex;
+    margin-bottom: 5px;
+    
+}
