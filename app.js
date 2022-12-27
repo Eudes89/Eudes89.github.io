@@ -11,10 +11,10 @@ const app = express();
 
 app.use(express.static(__dirname));
 
-app.use('/produtos', express.static(__dirname + '/public/routes/produtos.html'));
-app.use('/parceiros', express.static(__dirname + '/public/routes/parceiros.html'));
-app.use('/sobrenos', express.static(__dirname + '/public/routes/sobrenos.html'));
-app.use('/contato', express.static(__dirname + '/public/routes/contato.html'));
+app.use('/produtos', express.static(__dirname + '/routes/produtos.html'));
+app.use('/parceiros', express.static(__dirname + '/routes/parceiros.html'));
+app.use('/sobrenos', express.static(__dirname + '/routes/sobrenos.html'));
+app.use('/contato', express.static(__dirname + '/routes/contato.html'));
 
 app.listen(3000);
 
