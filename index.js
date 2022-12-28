@@ -2,7 +2,7 @@
 
 
 require("./app");
-require("./mysql");
+// require("./mysql");
 
 
 
