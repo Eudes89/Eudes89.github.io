@@ -18,7 +18,7 @@ app.use(express.static(__dirname));
 
 app.listen(3000);
 
-console.log('Conectado na Porta 3000');
-// console.log('Rotas conectadas por Express!');
-console.log('Abra localhost:3000 para ver mudanças.');
+// console.log('Conectado na Porta 3000');
+// // console.log('Rotas conectadas por Express!');
+// console.log('Abra localhost:3000 para ver mudanças.');
 

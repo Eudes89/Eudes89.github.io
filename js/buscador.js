@@ -6,6 +6,66 @@ const animButton = document.querySelector(".animated-button1");
 
 
 
+//=======================FUNCTION MASTER=================================================
+function buscador () {
+    
+    let searchFieldLetters = mapArraySearch();
+    for(let produto of allProducts){
+        let dados = dataProducts(produto);
+        let arrayDados = arrayProducData(dados);
+        for(i = 0; i < arrayDados.length; i++){
+            let mapProductWord = mapWordProduct(arrayDados[i]);
+            for(x = 0; x < searchFieldLetters.length; x++){
+                if(mapProductWord[i] == searchFieldLetters[x]){
+                    // Raciocinio para sequência: Se uma letra dos dados do produto
+                    // for igual a uma letra do campo de busca, oque fazer? continue aqui!
+                }
+            }
+        }
+    }
+
+};
+
+//========================END OF FUNCTION MASTER==========================================
+
+
+
+//========================WORK WITH RESULTS================================================
+
+// Cria um objeto de Resultado
+function ObjResultado (identificador, name, palavraxmatch) {
+    this.id = identificador;
+    this.produto = name;
+    this.match = [palavraxmatch];
+    return
+};
+
+// Cria objeto de Palavras que deram Match
+function objPalavrasMatch (palavra, xmatch) {
+    let match = {
+        word : palavra,
+        match : xmatch
+    }
+    return match;
+};
+
+// Adiciona no Objeto resultado as palavras que deram match
+// *variavel é o resultado da função objPalavraMatch
+function addinObjResult (objResultado, variavel) {
+
+}
+
+// Função MASTER de RESULTADOS
+function finalResult () {
+
+}
+
+//=========================END WORK WITH RESULTS===========================================
+
+
+
+//=============================WORK WITH SEARCHFIELD========================================
+
 function mapArraySearch () {
     
     let arraySearch = arraySearchValue(searchField.value);
@@ -24,12 +84,28 @@ function mapArraySearch () {
     return allLettersArray;
 };
 
+//Usado no MapArraysearch
+function arraySearchLetters (indice) {
+    let x = [];
+    for(let i of indice){
+        x.push(i);
+    };
+    return x;
+};
+
+//Usado no mapArraySearch
 function arraySearchValue (inputValue) {
     const regex = /[\W/" "]/;
     inputValue.toLowerCase();
     let resultado = inputValue.split(regex).filter(x => x !== "");
     return resultado;
 };
+
+//=============================END WORK WITH SEARCHFIELD=====================================
+
+
+
+//===============================WORK WITH PRODUCTS===========================================
 
 class Product {
     constructor(id, name, description, imgUrl){
@@ -38,7 +114,7 @@ class Product {
         this.description = description;
         this.url = imgUrl;
     }
-
+    
     test() {
         console.log(`id: ${this.id}, name: ${this.name}, 
         descrição: ${this.description}, img: ${this.img} . `);
@@ -88,28 +164,57 @@ class Product {
     }
 };
 
-let srd = new Product(1, "SRD W-Thane",
-"Tinta Pu Dupla função, com a srd w-thane 501 você aplica as " + 
-"etapas do primer, tinta e verniz de uma só vez." + 
-" Economia e qualidade!",
+const srd = new Product(1, "W-THANE SRD 501 ",
+"Tinta Pu Dupla função poliuretano acrílico " + 
+"de secagem rápida, alta resistência anticorrosiva " + 
+"e ao intemperismo. Produto aceita aplicação em diversos " +
+"tipos de substrato: aço jateado, aço carbono " + 
+"laminado a quente (chapa preta), aço carbono " + 
+"fosfatizado e galvanizado.",
  "./img/lata-branca-weg.png");
 
+const flex = new Product(2, "W-FROTA PU FLEX",
+"Tinta base poliuretano para aplicação em lonas e outras " + 
+"superfícies flexíveis. Devido a sua versatilidade também " +
+"pode ser utilizado como verniz para sistema de dupla camada" +
+" de até mesmo efeito metálico em substratos flexísiveis, outra" +
+" característica importante é a proteção e brilho no substrato" +
+" proporcionando uma grande facilidade no processo de limpeza.",
+"./img/lata-weg-roxa.png")
 
-function newData (produto) {
+// Array de Todos os produtos;
+const allProducts = [srd, flex];
+
+// Map date of each word in array product
+function mapWordProduct (indiceArray) {
+    let allLettersProduct = [];
+    for(let letter of indiceArray){
+        allLettersProduct.push(letter);
+    };
+    return allLettersProduct;
+};
+
+// Array dos dados do produto
+function arrayProducData (produto) {
+    
+    let dados = dataProducts(produto).toLowerCase();
+    const regex = /[\W/" "]/;
+    let array = dados.split(regex).filter(x => x !== "");
+    return array;
+};
+
+// Junção string dos dados do produto
+function dataProducts (produto) {
+    
     let titulo = produto.name;
     let desc = produto.description;
 
-    let newData = titulo + " " + desc;
+    let newData = (titulo + desc).toLowerCase();
+    
     return newData;
 };
 
-function arraySearchLetters (indice) {
-    let newArray = [];
-    for(let letter of indice){
-        newArray.push(letter);
-    }
-    return newArray;
-};
+//==========================END WORK WITH PRODUCTS===========================
 
 
 
