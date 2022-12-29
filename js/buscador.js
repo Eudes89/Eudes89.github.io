@@ -10,17 +10,13 @@ const animButton = document.querySelector(".animated-button1");
 function buscador () {
     
     let searchFieldLetters = mapArraySearch();
+    // console.log(searchFieldLetters);
     for(let produto of allProducts){
         let dados = dataProducts(produto);
-        let arrayDados = arrayProducData(dados);
-        for(i = 0; i < arrayDados.length; i++){
-            let mapProductWord = mapWordProduct(arrayDados[i]);
-            for(x = 0; x < searchFieldLetters.length; x++){
-                if(mapProductWord[i] == searchFieldLetters[x]){
-                    // Raciocinio para sequência: Se uma letra dos dados do produto
-                    // for igual a uma letra do campo de busca, oque fazer? continue aqui!
-                }
-            }
+        // console.log(dados);
+        for(i = 0; i < dados.length; i++){
+            let letraPalavraProduto = mapWordProduct(dados[i]);
+                
         }
     }
 
@@ -33,18 +29,18 @@ function buscador () {
 //========================WORK WITH RESULTS================================================
 
 // Cria um objeto de Resultado
-function ObjResultado (identificador, name, palavraxmatch) {
+function ObjResultado (identificador, name, letraXmatch) {
     this.id = identificador;
     this.produto = name;
-    this.match = [palavraxmatch];
+    this.match = [letraXmatch];
     return
 };
 
 // Cria objeto de Palavras que deram Match
-function objPalavrasMatch (palavra, xmatch) {
+function objLetraMatch (letra, indice) {
     let match = {
-        word : palavra,
-        match : xmatch
+        letra : letra,
+        indice: indice
     }
     return match;
 };
@@ -194,24 +190,19 @@ function mapWordProduct (indiceArray) {
     return allLettersProduct;
 };
 
-// Array dos dados do produto
-function arrayProducData (produto) {
-    
-    let dados = dataProducts(produto).toLowerCase();
-    const regex = /[\W/" "]/;
-    let array = dados.split(regex).filter(x => x !== "");
-    return array;
-};
 
-// Junção string dos dados do produto
+// Junção string dos dados do produto retorna uma array
 function dataProducts (produto) {
+    
+    const regex = /[\W/" "]/;
     
     let titulo = produto.name;
     let desc = produto.description;
 
-    let newData = (titulo + desc).toLowerCase();
+    let stringDados = (titulo + desc).toLowerCase();
+    let arrayDados = stringDados.split(regex).filter(x => x !== "");
     
-    return newData;
+    return arrayDados;
 };
 
 //==========================END WORK WITH PRODUCTS===========================
