@@ -9,52 +9,130 @@ const animButton = document.querySelector(".animated-button1");
 //=======================FUNCTION MASTER=================================================
 function buscador () {
     
-    let searchFieldLetters = mapArraySearch();
-    // console.log(searchFieldLetters);
-    for(let produto of allProducts){
-        let dados = dataProducts(produto);
-        // console.log(dados);
-        for(i = 0; i < dados.length; i++){
-            let letraPalavraProduto = mapWordProduct(dados[i]);
-                
-        }
-    }
+    let resultados = [];
 
+    let mapSearch = mapArraySearch();
+    // console.log(mapSearch);
+    for(let indSearch of mapSearch){
+        let stringSearchWord = indSearch.toString();
+        
+        for(let produto of allProducts){
+            
+            let mapProduct = mapWordProduct(produto);
+            // console.log(mapProduct)
+            console.log("total === " + mapProduct.length)
+            let lengthMapProduct = mapProduct.length -1;
+            
+            let objResult = {
+                item : produto.name,
+                palavras : 0
+            }
+
+            // console.log(mapProduct);
+            for(let indProduct of mapProduct){
+                
+                // console.log("indiProduct = " + indProduct);
+                let indexIndProduct = mapProduct.indexOf(indProduct);
+                console.log(indexIndProduct);
+                let stringProductWord = indProduct.toString();
+
+                // console.log(`index do ${indProduct} é : ${mapProduct.indexOf(indProduct)} ?`)
+
+                if(stringSearchWord === stringProductWord){
+                    
+                    objResult.palavras = +1
+
+                    if(lengthMapProduct == indexIndProduct){
+                        console.log(`Chegou ao fim da checagem do produto ${produto.name}.`);
+                    }
+                    // console.log(`O produto analisado foi: ${produto.name}.` +
+                    // ` Palavra dos dados: ${stringProductWorld}.` +
+                    // ` A palavra ${stringSearchWorld} da busca `);
+
+                } else {
+                    
+                }
+
+                // for(i = 0; i < stringProductWorld.length; i++){
+                //     for(x = 0; x < stringSearchWorld.length; x++){
+
+                //         if(stringProductWorld[i] === stringSearchWorld[x]){
+                //             console.log(
+                //                 `Produto: ${produto.name}; ` +
+                //                 `Letra encotrada: ${stringProductWorld[i]}; ` +
+                //                 `indice: ${i}; ` +
+                //                 `Palavra: ${stringProductWorld}; ` +
+                //                 `indice na array: ${mapProduct.indexOf(indProduct)}; ` +
+                //                 `Palavra do campo de busca: ${stringSearchWorld}; ` +
+                //                 `Letra: ${stringSearchWorld[x]}; ` +
+                //                 `Indice: ${x}; ` +
+                //                 `indice na array: ${mapSearch.indexOf(indSearch)};`
+                //             );
+
+                //         };
+
+                //     };
+                // };
+            };
+        };
+
+        
+    };
 };
+
+
+function buscador2 () {
+
+    let resultado = [];
+
+    let campoBusca = arraySearchValue(searchField.value); // ex: "SRD DUPLA FUNÇÂO"
+    
+    for(let produto of allProducts){
+        
+        let dados = dataProducts(produto);
+        let arrayDadosProduto = arrayDataProducts(dados);
+        console.log(arrayDadosProduto.length);
+        
+        let objResult = {
+            nomeProduto: produto.name,
+            palavras: []
+        }
+
+        for(let palavraBusca of campoBusca){
+            // console.log(palavraBusca);
+            for(let palavraProduto of arrayDadosProduto){
+                // console.log(palavraProduto);
+                // console.log(arrayDadosProduto.indexOf(palavraProduto));
+                if(palavraBusca == palavraProduto){
+                    console.log(palavraBusca + " " + palavraProduto + " " + produto.name);
+                    objResult.palavras.push(palavraProduto);
+                    console.log(objResult);
+                    if(arrayDadosProduto.length -1 === arrayDadosProduto.indexOf(palavraProduto)){
+                        resultado.push(objResult);
+                        break
+                    }
+                }
+            }
+        }
+        console.log(resultado)
+    }
+}
+
+
 
 //========================END OF FUNCTION MASTER==========================================
 
 
+//=========================SUPPORT FUNCTION OF MASTER=====================================
+
+
+
+//==========================END SUPPORT FUNCTIONS=========================================
+
 
 //========================WORK WITH RESULTS================================================
 
-// Cria um objeto de Resultado
-function ObjResultado (identificador, name, letraXmatch) {
-    this.id = identificador;
-    this.produto = name;
-    this.match = [letraXmatch];
-    return
-};
 
-// Cria objeto de Palavras que deram Match
-function objLetraMatch (letra, indice) {
-    let match = {
-        letra : letra,
-        indice: indice
-    }
-    return match;
-};
-
-// Adiciona no Objeto resultado as palavras que deram match
-// *variavel é o resultado da função objPalavraMatch
-function addinObjResult (objResultado, variavel) {
-
-}
-
-// Função MASTER de RESULTADOS
-function finalResult () {
-
-}
 
 //=========================END WORK WITH RESULTS===========================================
 
@@ -71,7 +149,7 @@ function mapArraySearch () {
     
     for(i = 0; i < arraySearch.length; i++){
         // console.log(i)
-        let sequelizeWord = arraySearchLetters(arraySearch[i]);
+        let sequelizeWord = arrayLetters(arraySearch[i]);
         // console.log(sequelizeWord);
         allLettersArray.push(sequelizeWord);
     };
@@ -81,7 +159,7 @@ function mapArraySearch () {
 };
 
 //Usado no MapArraysearch
-function arraySearchLetters (indice) {
+function arrayLetters (indice) {
     let x = [];
     for(let i of indice){
         x.push(i);
@@ -91,7 +169,7 @@ function arraySearchLetters (indice) {
 
 //Usado no mapArraySearch
 function arraySearchValue (inputValue) {
-    const regex = /[\W/" "]/;
+    const regex = /[()" ",]/;
     inputValue.toLowerCase();
     let resultado = inputValue.split(regex).filter(x => x !== "");
     return resultado;
@@ -182,29 +260,40 @@ const flex = new Product(2, "W-FROTA PU FLEX",
 const allProducts = [srd, flex];
 
 // Map date of each word in array product
-function mapWordProduct (indiceArray) {
-    let allLettersProduct = [];
-    for(let letter of indiceArray){
-        allLettersProduct.push(letter);
+function mapWordProduct (produto) {
+    
+    let arrayProductsLetters = [];
+
+    let dados = dataProducts(produto);
+    let arrayDados = arrayDataProducts(dados);
+        
+    for(i = 0; i < arrayDados.length; i++){
+        let Letters = arrayLetters(arrayDados[i])
+        arrayProductsLetters.push(Letters);
     };
-    return allLettersProduct;
+    
+    return arrayProductsLetters;
 };
 
-
 // Junção string dos dados do produto retorna uma array
-function dataProducts (produto) {
+function arrayDataProducts (produtoDados) {
     
-    const regex = /[\W/" "]/;
+    const regex = /[()" ",]/;
     
-    let titulo = produto.name;
-    let desc = produto.description;
-
-    let stringDados = (titulo + desc).toLowerCase();
-    let arrayDados = stringDados.split(regex).filter(x => x !== "");
+    let arrayDados = produtoDados.split(regex).filter(x => x !== "");
     
     return arrayDados;
 };
 
+function dataProducts (produto){
+    
+    let titulo = produto.name;
+    let desc = produto.description;
+
+    let stringDados = (titulo + " " + desc).toLowerCase();
+
+    return stringDados;
+}
 //==========================END WORK WITH PRODUCTS===========================
 
 
@@ -344,4 +433,4 @@ function dataProducts (produto) {
 
 
 
-  
+//   
