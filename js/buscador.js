@@ -91,7 +91,7 @@ function buscador2 () {
         
         let dados = dataProducts(produto);
         let arrayDadosProduto = arrayDataProducts(dados);
-        console.log(arrayDadosProduto.length);
+        // console.log(arrayDadosProduto.length);
         
         let objResult = {
             nomeProduto: produto.name,
@@ -104,18 +104,15 @@ function buscador2 () {
                 // console.log(palavraProduto);
                 // console.log(arrayDadosProduto.indexOf(palavraProduto));
                 if(palavraBusca == palavraProduto){
-                    console.log(palavraBusca + " " + palavraProduto + " " + produto.name);
+                    // console.log(palavraBusca + " " + palavraProduto + " " + produto.name);
                     objResult.palavras.push(palavraProduto);
-                    console.log(objResult);
-                    if(arrayDadosProduto.length -1 === arrayDadosProduto.indexOf(palavraProduto)){
-                        resultado.push(objResult);
-                        break
-                    }
+                    // console.log(objResult);
                 }
             }
         }
-        console.log(resultado)
+        resultado.push(objResult);
     }
+    console.log(resultado)
 }
 
 
