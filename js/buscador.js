@@ -89,14 +89,11 @@ function fullWordsResult () {
         }
         resultado.push(objResult);
     }
-<<<<<<< HEAD
-=======
     console.log(resultado)
-}
->>>>>>> fe85fc3e1ddb71c0d11cc832156f12177b60aa2d
-
     return resultado;
 }
+
+
 
 
 //========================END OF FUNCTION MASTER==========================================
