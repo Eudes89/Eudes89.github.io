@@ -7,84 +7,61 @@ const animButton = document.querySelector(".animated-button1");
 
 
 //=======================FUNCTION MASTER=================================================
-function buscador () {
+
+function sequenciais() {
+
+    let resultadoMaior;
     
-    let resultados = [];
+    let obj = indexLetterName();
 
-    let mapSearch = mapArraySearch();
-    // console.log(mapSearch);
-    for(let indSearch of mapSearch){
-        let stringSearchWord = indSearch.toString();
+    for( let dadoProduto of obj ) {
         
-        for(let produto of allProducts){
+        for(i = 0; i < dadoProduto.achados.length; i++){
             
-            let mapProduct = mapWordProduct(produto);
-            // console.log(mapProduct)
-            console.log("total === " + mapProduct.length)
-            let lengthMapProduct = mapProduct.length -1;
+            let indx = dadoProduto.achados[i]["indx"];
             
-            let objResult = {
-                item : produto.name,
-                palavras : 0
-            }
-
-            // console.log(mapProduct);
-            for(let indProduct of mapProduct){
+            if(dadoProduto.achados[(i + 1)]["indx"] === (indx + 1)){
                 
-                // console.log("indiProduct = " + indProduct);
-                let indexIndProduct = mapProduct.indexOf(indProduct);
-                console.log(indexIndProduct);
-                let stringProductWord = indProduct.toString();
-
-                // console.log(`index do ${indProduct} é : ${mapProduct.indexOf(indProduct)} ?`)
-
-                if(stringSearchWord === stringProductWord){
+                // console.log(`Duas letras sequenciais encontrads = letra: ${dadoProduto.achados[i]["letra"]} ` +
+                // `encotrada no index do nome do produto: ${dadoProduto.achados[i]["indx"]} ` +
+                // `, a proxima letra encontrada foi ${dadoProduto.achados[i + 1]["letra"]} ` +
+                // `no index do produto: ${dadoProduto.achados[i + 1]["indx"]} ` +
+                // `, elas aparacem uma apos a outra e por isso esta sendo mostrado!`)
+                
+                let indx2 = dadoProduto.achados[i + 1]["indx"];
+                
+                if(dadoProduto.achados[i + 2]["indx"] === indx2 + 1){
                     
-                    objResult.palavras = +1
-
-                    if(lengthMapProduct == indexIndProduct){
-                        console.log(`Chegou ao fim da checagem do produto ${produto.name}.`);
-                    }
-                    // console.log(`O produto analisado foi: ${produto.name}.` +
-                    // ` Palavra dos dados: ${stringProductWorld}.` +
-                    // ` A palavra ${stringSearchWorld} da busca `);
-
+                    console.log(`Três letras sequênciais encontradas = ` +
+                    `${dadoProduto.achados[i]["letra"]}, ` +
+                    `${dadoProduto.achados[i + 1]["letra"]} e ` +
+                    `${dadoProduto.achados[i + 2]["letra"]} .` +
+                    `no produto = ${dadoProduto.nomeProduto}`);
+                    
+                    let indx3 = dadoProduto.achados[i + 2]["indx"];
+                    
+                    resultadoMaior = `três Match em ${dadoProduto.nomeProduto}.`;
                 } else {
-                    
+                    console.log("não foram encontrados 3 letras sequenciais");
                 }
 
-                // for(i = 0; i < stringProductWorld.length; i++){
-                //     for(x = 0; x < stringSearchWorld.length; x++){
+            } else {
+                console.log("não foram encontradas duas letras seqeunciais.");
+            }
 
-                //         if(stringProductWorld[i] === stringSearchWorld[x]){
-                //             console.log(
-                //                 `Produto: ${produto.name}; ` +
-                //                 `Letra encotrada: ${stringProductWorld[i]}; ` +
-                //                 `indice: ${i}; ` +
-                //                 `Palavra: ${stringProductWorld}; ` +
-                //                 `indice na array: ${mapProduct.indexOf(indProduct)}; ` +
-                //                 `Palavra do campo de busca: ${stringSearchWorld}; ` +
-                //                 `Letra: ${stringSearchWorld[x]}; ` +
-                //                 `Indice: ${x}; ` +
-                //                 `indice na array: ${mapSearch.indexOf(indSearch)};`
-                //             );
+        }
+    }
 
-                //         };
+    return resultadoMaior;
 
-                //     };
-                // };
-            };
-        };
+}
 
-        
-    };
-};
+// RESULTADO DA COMPARAÇÃO ENTRE O CAMPO DE BUSCA COM AS PALAVRAS INTEIRAS DOS PRODUTOS.
 
-
-function buscador2 () {
-
+function fullWordsResult () {
+    
     let resultado = [];
-
+    
     let campoBusca = arraySearchValue(searchField.value); // ex: "SRD DUPLA FUNÇÂO"
     
     for(let produto of allProducts){
@@ -112,9 +89,9 @@ function buscador2 () {
         }
         resultado.push(objResult);
     }
-    console.log(resultado)
-}
 
+    return resultado;
+}
 
 
 //========================END OF FUNCTION MASTER==========================================
@@ -122,7 +99,55 @@ function buscador2 () {
 
 //=========================SUPPORT FUNCTION OF MASTER=====================================
 
+function indexLetterName () {
 
+    let busca = searchField.value.toLowerCase().replaceAll(" ", "");
+
+    let resultadoFinal = [];
+
+    for(let produto of allProducts){
+
+        let resultado = compareLetters(produto, busca);
+        resultadoFinal.push(resultado);
+    }
+
+    return resultadoFinal;
+
+}
+
+function compareLetters (produto, campoDeBusca){
+
+    let produtoString = produto.name.toLowerCase().replaceAll(" ", "");
+
+    let objDeRetorno = {
+
+        nomeProduto: produtoString,
+        achados: []
+    }
+
+    for(let letraBusca of campoDeBusca){
+
+        for(x = 0; x < produtoString.length; x++){
+
+            if(letraBusca == produtoString[x]){
+
+                if(objDeRetorno.achados[{indx: x, letra: letraBusca}]){
+
+                    objDeRetorno.achados[{indx: x, letra: letraBusca}]
+                    
+                    
+                } else {
+
+                    objDeRetorno.achados.push({indx: x, letra: letraBusca}) 
+                    
+                }
+            }
+        }
+    }
+
+    return objDeRetorno;
+
+}
 
 //==========================END SUPPORT FUNCTIONS=========================================
 
@@ -179,11 +204,13 @@ function arraySearchValue (inputValue) {
 //===============================WORK WITH PRODUCTS===========================================
 
 class Product {
-    constructor(id, name, description, imgUrl){
+    constructor(id, name, description, imgUrl, indexA, indexB){
         this.id = id;
         this.name = name;
         this.description = description;
         this.url = imgUrl;
+        this.indexA = indexA;
+        this.indexB = indexB;
     }
     
     test() {
@@ -235,23 +262,27 @@ class Product {
     }
 };
 
-const srd = new Product(1, "W-THANE SRD 501 ",
+const srd = new Product(1, "W THANE SRD 501 ",
 "Tinta Pu Dupla função poliuretano acrílico " + 
 "de secagem rápida, alta resistência anticorrosiva " + 
 "e ao intemperismo. Produto aceita aplicação em diversos " +
 "tipos de substrato: aço jateado, aço carbono " + 
 "laminado a quente (chapa preta), aço carbono " + 
 "fosfatizado e galvanizado.",
- "./img/lata-branca-weg.png");
+ "./img/lata-branca-weg.png",
+ "tinta pu dupla função elimina etapas do primer e verniz",
+ "src sre crd drd rds drc drs tane dane thene tene taine");
 
-const flex = new Product(2, "W-FROTA PU FLEX",
+const flex = new Product(2, "W FROTA PU FLEX",
 "Tinta base poliuretano para aplicação em lonas e outras " + 
 "superfícies flexíveis. Devido a sua versatilidade também " +
 "pode ser utilizado como verniz para sistema de dupla camada" +
 " de até mesmo efeito metálico em substratos flexísiveis, outra" +
 " característica importante é a proteção e brilho no substrato" +
 " proporcionando uma grande facilidade no processo de limpeza.",
-"./img/lata-weg-roxa.png")
+"./img/lata-weg-roxa.png",
+"tinta pu lonas siders flexísiveis",
+"frex frix frax lona side saide said seid frequisi frequixi fresquisci frequissi flequisi flecsi flexe");
 
 // Array de Todos os produtos;
 const allProducts = [srd, flex];
