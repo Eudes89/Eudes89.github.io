@@ -105,6 +105,7 @@ function compareLetters (produto, campoDeBusca){
 
         for(x = 0; x < produtoString.length; x++){
 
+<<<<<<< HEAD
             if(campoDeBusca[i] === produtoString[x]){
 
                 
@@ -122,6 +123,17 @@ function compareLetters (produto, campoDeBusca){
     }
     
     objDeRetorno.achados.push(finds);
+=======
+            if(letraBusca === produtoString[x]){
+
+                objDeRetorno.achados.push({indx: x, letra: produtoString[x]}) 
+                
+            }
+        }
+    }
+
+    
+>>>>>>> f4e6c95de8ace44f5214cdc1833e5b0bd8352227
     return objDeRetorno;
 
 }
