@@ -7,53 +7,25 @@ const animButton = document.querySelector(".animated-button1");
 
 
 //=======================FUNCTION MASTER=================================================
+// intuição da função é encontrar a maior sequência de letras em uma palavra
+function sequenceMatch() {
 
-function sequenciais() {
-
-    let resultadoMaior;
-    
-    let obj = indexLetterName();
-
-    for( let dadoProduto of obj ) {
-        
-        for(i = 0; i < dadoProduto.achados.length; i++){
+    let encontrados = indexLetterName();
+    for(i = 0; i < encontrados.length; i++){
+        // obE = objeto dos encotrados
+        let obE = encontrados[i].achados[0];
+        // console.log(obE);
+                
+        for(let chave in obE){
             
-            let indx = dadoProduto.achados[i]["indx"];
-            
-            if(dadoProduto.achados[(i + 1)]["indx"] === (indx + 1)){
-                
-                // console.log(`Duas letras sequenciais encontrads = letra: ${dadoProduto.achados[i]["letra"]} ` +
-                // `encotrada no index do nome do produto: ${dadoProduto.achados[i]["indx"]} ` +
-                // `, a proxima letra encontrada foi ${dadoProduto.achados[i + 1]["letra"]} ` +
-                // `no index do produto: ${dadoProduto.achados[i + 1]["indx"]} ` +
-                // `, elas aparacem uma apos a outra e por isso esta sendo mostrado!`)
-                
-                let indx2 = dadoProduto.achados[i + 1]["indx"];
-                
-                if(dadoProduto.achados[i + 2]["indx"] === indx2 + 1){
-                    
-                    console.log(`Três letras sequênciais encontradas = ` +
-                    `${dadoProduto.achados[i]["letra"]}, ` +
-                    `${dadoProduto.achados[i + 1]["letra"]} e ` +
-                    `${dadoProduto.achados[i + 2]["letra"]} .` +
-                    `no produto = ${dadoProduto.nomeProduto}`);
-                    
-                    let indx3 = dadoProduto.achados[i + 2]["indx"];
-                    
-                    resultadoMaior = `três Match em ${dadoProduto.nomeProduto}.`;
-                } else {
-                    console.log("não foram encontrados 3 letras sequenciais");
-                }
-
-            } else {
-                console.log("não foram encontradas duas letras seqeunciais.");
-            }
+            console.log(chave);
+            console.log(obE[chave]);
+            console.log(typeof obE[chave]);
 
         }
+        
     }
-
-    return resultadoMaior;
-
+    
 }
 
 // RESULTADO DA COMPARAÇÃO ENTRE O CAMPO DE BUSCA COM AS PALAVRAS INTEIRAS DOS PRODUTOS.
@@ -94,9 +66,9 @@ function fullWordsResult () {
 }
 
 
-
-
 //========================END OF FUNCTION MASTER==========================================
+
+
 
 
 //=========================SUPPORT FUNCTION OF MASTER=====================================
@@ -127,38 +99,36 @@ function compareLetters (produto, campoDeBusca){
         achados: []
     }
 
-    for(let letraBusca of campoDeBusca){
+    let finds = {};
+
+    for(i = 0; i < campoDeBusca.length; i++){
 
         for(x = 0; x < produtoString.length; x++){
 
-            if(letraBusca == produtoString[x]){
+            if(campoDeBusca[i] === produtoString[x]){
 
-                if(objDeRetorno.achados[{indx: x, letra: letraBusca}]){
-
-                    objDeRetorno.achados[{indx: x, letra: letraBusca}]
+                
+                // if(finds[produtoString[x]]){
                     
+                //     finds[produtoString[x]].push(x);
                     
-                } else {
-
-                    objDeRetorno.achados.push({indx: x, letra: letraBusca}) 
+                // } else {
                     
-                }
+                //     finds[produtoString[x]] = [x];
+                    
+                // }
             }
         }
     }
-
+    
+    objDeRetorno.achados.push(finds);
     return objDeRetorno;
 
 }
 
+
 //==========================END SUPPORT FUNCTIONS=========================================
 
-
-//========================WORK WITH RESULTS================================================
-
-
-
-//=========================END WORK WITH RESULTS===========================================
 
 
 
@@ -325,142 +295,3 @@ function dataProducts (produto){
     return stringDados;
 }
 //==========================END WORK WITH PRODUCTS===========================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// FUNÇÃO BUSCAR ANTIGA ABAIXO \/
-
-// botaoBuscar.addEventListener("click", mostrarResultado);
-// // CADASTRO DE TODOS OS PRODUTOS
-
-// const produtoSrd = {
-//     name: document.querySelector(".tituloSrd").textContent,
-//     cod: "01",
-//     lista: document.querySelector(".produto__srd"),
-//     descricao: document.querySelector(".descricaoSrd").textContent
-    
-// };
-
-// const produtoFlex = {
-//     name: document.querySelector(".tituloflex").textContent,
-//     cod: "02",
-//     lista: document.querySelector(".produtoFlex"),
-//     descricao: document.querySelector(".descricaoFlex").textContent
-// };
-
-// const produtoSintetico = {
-//     name: document.querySelector(".tituloSintetico").textContent,
-//     cod: "03",
-//     lista: document.querySelector(".produtoSintetico"),
-//     descricao: document.querySelector(".descricaoSintetico").textContent
-// };
-
-// //TODOS OS OBJETOS PRODUTOS
-// let todosProdutos = [produtoSrd, produtoFlex, produtoSintetico];
-
-// function mostrarResultado () {
-
-//     let obj = objetosAchados();
-//     let ordem = ordenarResultado(obj);
-
-//     for(let achado of ordem){
-//         achado.obj.lista.hidden = false;
-//     };
-// };
-
-// function ordenarResultado (arrayAchados) {
-    
-//     let arrayNumeros = [];
-//     let listaOrdenada = [];
-
-//     //extrai os numeros e cria uma array
-//     for(let item of arrayAchados){
-//         arrayNumeros.push(item.qtDmatch);
-//     };
-
-//     //array em ordem decrescente
-//     arrayNumeros.sort((a,b) => {
-//         if(a > b){
-//             return -1;
-//         }
-//         if(a < b) {
-//             return 1;
-//         }
-//         return 0;
-
-//     });
-
-//     // ordena a lista 
-//     for(i = 0; i < arrayNumeros.length; i++){
-//         for(let item of arrayAchados){
-//             if(arrayNumeros[i] === item.qtDmatch){
-//                 listaOrdenada.push(item);
-//                 break;
-//             };
-//         };
-//     };
-
-//     return listaOrdenada;
-// };
-
-// function objetosAchados () {
-    
-//     let achados = [];
-    
-//     for(let produto of todosProdutos){
-//         let encontrados = quantosMatch(produto);
-//         if(encontrados.obj){
-//         achados.push(encontrados);
-//         }
-//     };
-    
-//     return achados;
-// };
-
-// function quantosMatch (produto){
-    
-    //     let produtoName = produto.name.toLowerCase();
-//     let produtoDescricao = produto.descricao.toLowerCase();
-//     let allInfoProduct = produtoName + " " + produtoDescricao;
-//     let arrayProduto = allInfoProduct.split(" ");
-//     let campoDeBusca = inputBuscar.value.toLowerCase();
-//     let arrayBusca = campoDeBusca.split(" ");
-//     let achados = {};
-
-//     for(let palavraBusca of arrayBusca){
-//         for(let palavraProduto of arrayProduto){
-            
-//             if(palavraBusca === palavraProduto){
-            
-//                 if(achados["produto"]){
-//                     achados["qtDmatch"] += 1;
-//                 } else {
-//                     achados = {
-//                         "produto" : produto.name,
-//                         "qtDmatch" : 1,
-//                         "obj" : produto
-//                     };
-//                 };
-//             };
-//         };
-//     };
-
-//     return achados;
-// };
-
-
-
-
-//   
