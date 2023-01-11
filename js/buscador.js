@@ -131,22 +131,15 @@ function compareLetters (produto, campoDeBusca){
 
         for(x = 0; x < produtoString.length; x++){
 
-            if(letraBusca == produtoString[x]){
+            if(letraBusca === produtoString[x]){
 
-                if(objDeRetorno.achados[{indx: x, letra: letraBusca}]){
-
-                    objDeRetorno.achados[{indx: x, letra: letraBusca}]
-                    
-                    
-                } else {
-
-                    objDeRetorno.achados.push({indx: x, letra: letraBusca}) 
-                    
-                }
+                objDeRetorno.achados.push({indx: x, letra: produtoString[x]}) 
+                
             }
         }
     }
 
+    
     return objDeRetorno;
 
 }
