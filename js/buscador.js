@@ -12,19 +12,42 @@ function sequenceMatch() {
 
     let encontrados = indexLetterName();
     for(i = 0; i < encontrados.length; i++){
-        // obE = objeto dos encotrados
-        let obE = encontrados[i].achados[0];
-        // console.log(obE);
-                
-        for(let chave in obE){
-            
-            console.log(chave);
-            console.log(obE[chave]);
-            console.log(typeof obE[chave]);
+        
+        let indices = [];
+        
+        for(let key in encontrados[i].achados){
 
+            // console.log(key);
+            // console.log(encontrados[i].achados[key]);
+            indices.push(encontrados[i].achados[key]);
         }
         
+        console.log(indices);
+        // console.log(indices.indexOf(8));
+        for(x = 0; x < indices.length; x++){
+            
+            // console.log(indices[x])
+
+            let start = indices[x];
+            let startIndex = [x];
+            let firstSequence = start + 1;
+            let firstIndex = [x + 1];
+            let secondSequence = start + 2;
+            let secondIndex = [x + 2];
+            console.log(`Start = ${start} e seu startIndex é ${startIndex}.`);
+            console.log(`firstSequence = ${firstSequence} e seu firstIndex é ${firstIndex}.`);
+            console.log(`SecondSequence = ${secondSequence} e seu secondIndex é ${secondIndex}.`);
+
+            if(indices.indexOf(firstSequence) === firstIndex && 
+            indices.indexOf(secondSequence) === secondIndex){
+                console.log(`ENCONTRADO 3 SEQUENCIAS!`)
+            } else {
+                console.log("ENCONTRADO DUAS OU NENHUMA SEQUENCIA!");
+            }
+        }
     }
+
+
     
 }
 
@@ -95,45 +118,23 @@ function compareLetters (produto, campoDeBusca){
 
     let objDeRetorno = {
 
+        id: produto.id,
         nomeProduto: produtoString,
-        achados: []
+        achados: {}
     }
-
-    let finds = {};
 
     for(i = 0; i < campoDeBusca.length; i++){
 
         for(x = 0; x < produtoString.length; x++){
 
-<<<<<<< HEAD
             if(campoDeBusca[i] === produtoString[x]){
 
-                
-                // if(finds[produtoString[x]]){
-                    
-                //     finds[produtoString[x]].push(x);
-                    
-                // } else {
-                    
-                //     finds[produtoString[x]] = [x];
-                    
-                // }
-            }
-        }
-    }
-    
-    objDeRetorno.achados.push(finds);
-=======
-            if(letraBusca === produtoString[x]){
+                objDeRetorno.achados[produtoString[x]] = x;
 
-                objDeRetorno.achados.push({indx: x, letra: produtoString[x]}) 
-                
             }
         }
     }
 
-    
->>>>>>> f4e6c95de8ace44f5214cdc1833e5b0bd8352227
     return objDeRetorno;
 
 }
